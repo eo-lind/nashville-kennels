@@ -21,8 +21,7 @@ export const ApplicationViews = () => {
         <Route path="/locations" element={<LocationList />} />
         <Route path="/employees" element={<EmployeeList />} />
 
-        {/* Make sure you add the `exact` attribute here */}
-        <Route exact path="/animals" element={<AnimalList />} />
+
         {/*
           This is a new route to handle a URL with the following pattern:
           http://localhost:3000/animals/1

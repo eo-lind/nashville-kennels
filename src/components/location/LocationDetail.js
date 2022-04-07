@@ -4,7 +4,7 @@ import './LocationDetail.css';
 import { useParams, useNavigate } from "react-router-dom"
 
 export const LocationDetail = () => {
-  const [location, setLocation] = useState({ name: "", breed: "" });
+  const [location, setLocation] = useState({ name: "", address: "" });
 
   const {locationId} = useParams();
   const navigate = useNavigate();
@@ -20,9 +20,7 @@ export const LocationDetail = () => {
   return (
     <section className="location">
       <h3 className="location__name">{location.name}</h3>
-      <div className="location__breed">{location.breed}</div>
-      <div className="location__location">Location: {location.location?.name}</div>
-      <div className="location__owner">Customer: {location.customer?.name}</div>
+      <div className="location__address">{location.address}</div>
     </section>
   );
 }
