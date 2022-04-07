@@ -1,9 +1,5 @@
 import React from "react";
 import { PropsAndState } from './PropsAndState';
-// import { AnimalList } from "./animal/AnimalList";
-// import { EmployeeList } from "./employee/EmployeeList";
-// import { LocationList } from "./location/LocationList";
-// import { CustomerList } from "./customer/CustomerList"
 
 export const Home = () => (
     <>

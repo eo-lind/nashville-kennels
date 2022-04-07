@@ -20,13 +20,21 @@ export const AnimalList = () => {
     getAnimals();
   }, []);
 
+const handleDeleteAnimal = id => {
+  deleteAnimal(id)
+  .then(() => getAllAnimals().then(setAnimals));
+};
+
   // Finally we use .map() to "loop over" the animals array to show a list of animal cards
   return (
     <div className="container-cards">
       {animals.map((animal) => (
-        <AnimalCard key={animal.id} animal={animal} />
+        <AnimalCard key={animal.id}
+        animal={animal}
+        handleDeleteAnimal={handleDeleteAnimal} />
       ))}
     </div>
   );
-  
 };
+
+
