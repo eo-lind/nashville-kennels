@@ -1,10 +1,9 @@
 import React from "react";
-import { PropsAndState } from './PropsAndState'
-import { AnimalCard } from "./animal/AnimalCard"
-// import { CustomerCard } from "./customer/CustomerCard"
-// import { EmployeeCard } from "./employee/EmployeeCard"
-// import { LocationCard } from "./location/LocationCard"
-
+import { PropsAndState } from './PropsAndState';
+// import { AnimalList } from "./animal/AnimalList";
+// import { EmployeeList } from "./employee/EmployeeList";
+// import { LocationList } from "./location/LocationList";
+// import { CustomerList } from "./customer/CustomerList"
 
 export const Home = () => (
     <>
@@ -15,30 +14,6 @@ export const Home = () => (
             <div>500 Puppy Way</div>
         </address>
         <PropsAndState yourName="Olivia" />
-        <h2>Animals</h2>
-        <article className="animals">
-            <AnimalCard />
-            <AnimalCard />
-            <AnimalCard />
-        </article>
     </>
 )
 
-{/* <h2>Employees</h2>
-<article className="employees">
-    <EmployeeCard />
-    <EmployeeCard />
-    <EmployeeCard />
-</article>
-<h2>Locations</h2>
-<article className="locations">
-    <LocationCard />
-    <LocationCard />
-<h2>Customers</h2>
-</article>
-<article className="customers">
-    <CustomerCard />
-    <CustomerCard />
-    <CustomerCard />
-    <CustomerCard />
-</article> */}
