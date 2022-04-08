@@ -15,10 +15,7 @@ export const AnimalDetail = () => {
     console.log("useEffect", animalId)
     getAnimalById(animalId)
       .then(animal => {
-        setAnimal({
-          name: animal.name,
-          breed: animal.breed
-        });
+        setAnimal(animal);
         setIsLoading(false);
       });
   }, [animalId]);
