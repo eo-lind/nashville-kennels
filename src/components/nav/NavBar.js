@@ -44,7 +44,7 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
         <li className="navbar__item">
           <Link className="navbar__link" to="/customers">
             {" "}
-            Owners{" "}
+            Customers{" "}
           </Link>
         </li>
       )}

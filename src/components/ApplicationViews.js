@@ -16,6 +16,7 @@ import { Register } from "./auth/Register.js"
 import { AnimalEditForm } from "./animal/AnimalEditForm"
 import { EmployeeEditForm } from "./employee/EmployeeEditForm"
 import { CustomerEditForm } from "./customer/CustomerEditForm"
+import { LocationEditForm } from "./location/LocationEditForm"
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = ({ children }) => {
@@ -90,9 +91,9 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
             </PrivateRoute>
           }
         />
+        <Route exact path="/locations/:locationId" element={<PrivateRoute><LocationDetail /></PrivateRoute>} />
 
         <Route exact path="/locations" element={<LocationList />} />
-        <Route path="/locations/:locationId" element={<LocationDetail />} />
         <Route path="/animals/create" element={<AnimalForm />} />
         <Route path="/employees/create" element={<EmployeeForm />} />
         <Route path="/customers/create" element={<CustomerForm />} />
@@ -119,6 +120,14 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
           element={
             <PrivateRoute>
               <CustomerEditForm />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/locations/:locationId/edit"
+          element={
+            <PrivateRoute>
+              <LocationEditForm />
             </PrivateRoute>
           }
         />
