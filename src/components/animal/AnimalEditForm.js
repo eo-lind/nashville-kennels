@@ -14,7 +14,7 @@ export const AnimalEditForm = () => {
   })
   const [isLoading, setIsLoading] = useState(false)
 
-  // added for dropdwns:
+  // added for dropdowns:
   const [locations, setLocations] = useState([])
   const [customers, setCustomers] = useState([])
   // end dropdown addition
@@ -28,7 +28,7 @@ export const AnimalEditForm = () => {
     setAnimal(stateToChange)
   }
 
-  // added for dropdwns:
+  // added for dropdowns:
   const handleControlledInputChange = (event) => {
     /* When changing a state object or array,
 		always create a copy, make changes, and then set state.*/
