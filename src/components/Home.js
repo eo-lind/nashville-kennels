@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { AnimalSpotlight } from "../components/animal/AnimalSpotlight"
 import { getRandomId } from "../modules/AnimalManager"
-import { PropsAndState } from "./PropsAndState"
+import { PropsAndState, Countdown } from "./PropsAndState"
 
 export const Home = () => {
   const [spotlightId, setSpotlightId] = useState(0)
@@ -21,6 +21,8 @@ export const Home = () => {
         <br />
         500 Puppy Way
       </address>
+      <PropsAndState />
+      <Countdown />
       <h1>Animal Spotlight</h1>
       <button onClick={refreshSpotlightAnimal}>Reload &#x27f3;</button>
       {spotlightId && <AnimalSpotlight animalId={spotlightId} />}

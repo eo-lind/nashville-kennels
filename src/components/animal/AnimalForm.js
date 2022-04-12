@@ -9,11 +9,14 @@ export const AnimalForm = () => {
 	// State will contain both animal data as well as an isLoading flag.
 	// Define the initial state of the form inputs with useState()
 
+	const todaysDate = new Date().toISOString().slice(0, 10)
+
 	const [animal, setAnimal] = useState({
 		name: "",
 		breed: "",
 		locationId: 0,
-		customerId: 0
+		customerId: 0,
+		dateAdmitted: todaysDate
 	});
 
 	const [isLoading, setIsLoading] = useState(false);
@@ -69,6 +72,7 @@ export const AnimalForm = () => {
 
 		const locationId = animal.locationId
 		const customerId = animal.customerId
+		const dateAdmitted = animal.dateAdmitted
 
 		if (locationId === 0 || customerId === 0) {
 			window.alert("Please select a location and a customer")
@@ -81,50 +85,101 @@ export const AnimalForm = () => {
 	}
 
 	return (
-		<form className="animalForm">
-			<h2 className="animalForm__title">New Animal</h2>
-			<fieldset>
-				<div className="form-group">
-					<label htmlFor="name">Animal name:</label>
-					<input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Animal name" value={animal.name} />
-				</div>
-			</fieldset>
-			<fieldset>
-				<div className="form-group">
-					<label htmlFor="breed">Animal breed:</label>
-					<input type="text" id="breed" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Animal breed" value={animal.breed} />
-				</div>
-			</fieldset>
-			<fieldset>
-				<div className="form-group">
-					<label htmlFor="location">Assign to location: </label>
-					<select value={animal.locationId} name="locationId" id="locationId" onChange={handleControlledInputChange} className="form-control" >
-						<option value="0">Select a location</option>
-						{locations.map(l => (
-							<option key={l.id} value={l.id}>
-								{l.name}
-							</option>
-						))}
-					</select>
-				</div>
-			</fieldset>
-			<fieldset>
-				<div className="form-group">
-					<label htmlFor="customerId">Customer: </label>
-					<select value={animal.customerId} name="customer" id="customerId" onChange={handleControlledInputChange} className="form-control" >
-						<option value="0">Select a customer</option>
-						{customers.map(c => (
-							<option key={c.id} value={c.id}>
-								{c.name}
-							</option>
-						))}
-					</select>
-				</div>
-			</fieldset>
-			<button type="button" className="btn btn-primary"
-				onClick={handleClickSaveAnimal}>
-				Save Animal
-          </button>
-		</form>
-	)
+    <form className="animalForm">
+      <h2 className="animalForm__title">New Animal</h2>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="name">Animal name:</label>
+          <input
+            type="text"
+            id="name"
+            onChange={handleControlledInputChange}
+            required
+            autoFocus
+            className="form-control"
+            placeholder="Animal name"
+            value={animal.name}
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="breed">Animal breed:</label>
+          <input
+            type="text"
+            id="breed"
+            onChange={handleControlledInputChange}
+            required
+            autoFocus
+            className="form-control"
+            placeholder="Animal breed"
+            value={animal.breed}
+          />
+        </div>
+      </fieldset>
+	  {/* start admission date */}
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="dateAdmitted">Admission date:</label>
+          <input
+            type="date"
+            id="dateAdmitted"
+            onChange={handleControlledInputChange}
+            required
+            autoFocus
+            className="form-control"
+            placeholder="Admission Date"
+			// defaultValue={todaysDate}
+            value={animal.dateAdmitted}
+          />
+        </div>
+      </fieldset>
+	  {/* end admission date */}
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="location">Assign to location: </label>
+          <select
+            value={animal.locationId}
+            name="locationId"
+            id="locationId"
+            onChange={handleControlledInputChange}
+            className="form-control"
+          >
+            <option value="0">Select a location</option>
+            {locations.map((l) => (
+              <option key={l.id} value={l.id}>
+                {l.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="customerId">Customer: </label>
+          <select
+            value={animal.customerId}
+            name="customer"
+            id="customerId"
+            onChange={handleControlledInputChange}
+            className="form-control"
+          >
+            <option value="0">Select a customer</option>
+            {customers.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </fieldset>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={handleClickSaveAnimal}
+      >
+        Save Animal
+      </button>
+    </form>
+  )
 };

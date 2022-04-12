@@ -20,3 +20,25 @@ export const PropsAndState = ({ yourName }) => {
     </>
   );
 };
+
+
+// countdown
+// TODO unfinished
+
+export const Countdown  = () => {
+  let [countdownTimer, setCountdownTimer ] = useState(10)
+  
+  const handleClick = () => {
+    const newCountdownTimer = --countdownTimer
+    setCountdownTimer(newCountdownTimer)
+  }
+
+  return (
+    <>
+      <p>{countdownTimer}</p>
+      <button onClick={handleClick}>Click Me</button>
+    </>
+  )
+}
+
+//end countdown

@@ -34,6 +34,7 @@ export const AnimalDetail = () => {
       <div className="animal__breed">{animal.breed}</div>
       <div className="animal__location">Location: {animal.location?.name}</div>
       <div className="animal__owner">Customer: {animal.customer?.name}</div>
+      <div className="animal__dateAdmitted">Admission Date: {animal.dateAdmitted}</div>
       <Link to={`/animals/${animal.id}/edit`}>
         <button>Edit</button>
       </Link>
