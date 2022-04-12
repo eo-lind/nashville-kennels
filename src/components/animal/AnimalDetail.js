@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAnimalById, deleteAnimal } from "../../modules/AnimalManager";
 import "./AnimalDetail.css";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 export const AnimalDetail = () => {
   const [animal, setAnimal] = useState({ name: "", breed: "" });
@@ -34,9 +34,12 @@ export const AnimalDetail = () => {
       <div className="animal__breed">{animal.breed}</div>
       <div className="animal__location">Location: {animal.location?.name}</div>
       <div className="animal__owner">Customer: {animal.customer?.name}</div>
+      <Link to={`/animals/${animal.id}/edit`}>
+        <button>Edit</button>
+      </Link>
       <button type="button" disabled={isLoading} onClick={handleDelete}>
-          Discharge
-        </button>
+        Discharge
+      </button>
     </section>
-  );
+  )
 };

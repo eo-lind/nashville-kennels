@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getLocationById, deleteLocation } from '../../modules/LocationManager';
 import './LocationDetail.css';
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 
 export const LocationDetail = () => {
   const [location, setLocation] = useState({ name: "", address: "" });
@@ -31,10 +31,13 @@ export const LocationDetail = () => {
     <section className="location">
       <h3 className="location__name">{location.name}</h3>
       <div className="location__address">{location.address}</div>
+      <Link to={`/locations/${location.id}/edit`}>
+        <button>Edit</button>
+      </Link>
       <button type="button" disabled={isLoading} onClick={handleDelete}>
-          Close Location
-        </button>
+        Close Location
+      </button>
     </section>
-  );
+  )
 }
 
